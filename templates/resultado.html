@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia - Resultado</title>
+</head>
+<body>
+    <h1>Resultado</h1>
+    <p>Tiempo total: {{ tiempo_total }} segundos</p>
+    <h2>Ránquin de Niveles</h2>
+    <ol>
+        {% for participante in participantes %}
+            <li>{{ participante['nombre'] }} - {{ participante['edad'] }} años</li>
+        {% endfor %}
+    </ol>
+    <p>Felicitaciones por completar la trivia</p>
+</body>
+</html>

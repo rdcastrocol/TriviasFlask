@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia - {{ categoria }}</title>
+</head>
+<body>
+    <h1>Trivia - {{ categoria }}</h1>
+    <form action="/resultado" method="post">
+        <input type="hidden" name="tiempo_inicio" value="{{ time.time() }}">
+        {% for pregunta in trivia %}
+            <h3>{{ pregunta['pregunta'] }}</h3>
+            <ul>
+                {% for opcion in pregunta['opciones'] %}
+                    <li><input type="radio" name="respuesta_{{ loop.index }}" value="{{ opcion }}"> {{ opcion }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+        <button type="submit">Siguiente</button>
+    </form>
+</body>
+</html>
